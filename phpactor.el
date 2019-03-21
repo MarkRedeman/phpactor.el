@@ -647,7 +647,8 @@ function."
 ;;;###autoload
 (defun phpactor-import-class (name)
   "Execute Phpactor RPC import_class command for class NAME."
-  (interactive)
+  (interactive (list (read-string (format "Class (%s): " (thing-at-point 'word))
+                                  nil nil (thing-at-point 'word))))
   (let ((arguments (phpactor--command-argments :source :offset :path)))
     (apply #'phpactor-action-dispatch (phpactor--rpc "import_class" (append arguments (list :name name))))))
 
