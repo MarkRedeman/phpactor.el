@@ -259,6 +259,9 @@ of GitHub.")
       (choice (completing-read label
                                (cl-loop for (_ v) on choices by #'cddr
                                         collect v)))
+      (list (completing-read label
+                               (cl-loop for (_ v) on choices by #'cddr
+                                        collect v)))
       (t (error "Unknown input type %s" type)))))
 
 (defun phpactor-action--collect-inputs (inputs)
